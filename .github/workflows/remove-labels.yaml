@@ -1,0 +1,16 @@
+name: Remove labels
+on:
+  project_card:
+    types:
+      - moved
+      - created
+      - converted
+jobs:
+  remove_labels:
+    if: github.event.project_card.column_id == '12345678'
+    runs-on: ubuntu-latest
+    steps:
+      - name: remove labels
+        uses: andymckay/labeler@master
+        with:
+          remove-labels: "needs-review"
