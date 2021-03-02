@@ -1,18 +1,18 @@
 name: Remove labels
 on:
   project_card:
-#     types:
-#       - moved
-#       - created
-#       - converted
+    types:
+      - moved
+      - created
+      - converted
 jobs:
   remove_labels:
-#     if: github.event.project_card.column_id == '13186353'
+    if: github.event.project_card.column_id == '13185029'
     runs-on: ubuntu-latest
     steps:
-#       - name: remove labels
-#         uses: andymckay/labeler@master
-#         with:
-#           remove-labels: "bug"
-#           repo-token: ${{ secrets.GITHUB_TOKEN }}
-      - run: echo yey
+      - name: remove labels
+        uses: andymckay/labeler@master
+        with:
+          remove-labels: "bug"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+#       - run: echo yey
