@@ -9,6 +9,6 @@ jobs:
     steps:
       - uses: alex-page/github-project-automation-plus@v0.3.0
         with:
-          project: Docs Work
-          column: In Progress
+          project: apm-org-repo-board
+          column: c2
           repo-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
