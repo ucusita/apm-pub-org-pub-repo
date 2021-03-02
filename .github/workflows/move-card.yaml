@@ -1,18 +1,17 @@
-name: Remove labels
+name: Move help wanted issues
 on:
-  project_card:
+  issues:
     types:
-      - moved
-      - created
-      - converted
+      - labeled
+
 jobs:
-  remove_labels:
-    if: github.event.project_card.column_id == '13185029'
+  move_issues:
+    if: github.repository == 'apm-pub-org/apm-pub-org-pub-repo' && (github.event.label.name == 'help wanted' || github.event.label.name == 'good first issue')
     runs-on: ubuntu-latest
+
     steps:
-      - name: remove labels
-        uses: andymckay/labeler@master
+      - uses: alex-page/github-project-automation-plus@v0.3.0
         with:
-          remove-labels: "bug"
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-#       - run: echo yey
+          project: apm-org-repo-board
+          column: c1
+          repo-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
