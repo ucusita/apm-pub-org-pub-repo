@@ -14,3 +14,4 @@ jobs:
         uses: andymckay/labeler@master
         with:
           remove-labels: "needs-review"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
