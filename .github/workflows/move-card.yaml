@@ -1,14 +1,18 @@
-name: Label moved card
+name: Remove labels
 on:
-  issues:
-    types:
-      - assigned
+  project_card:
+#     types:
+#       - moved
+#       - created
+#       - converted
 jobs:
-  automate-project-columns:
+  remove_labels:
+#     if: github.event.project_card.column_id == '13186353'
     runs-on: ubuntu-latest
     steps:
-      - uses: alex-page/github-project-automation-plus@v0.3.0
-        with:
-          project: apm-org-board
-          column: c2
-          repo-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+#       - name: remove labels
+#         uses: andymckay/labeler@master
+#         with:
+#           remove-labels: "bug"
+#           repo-token: ${{ secrets.GITHUB_TOKEN }}
+      - run: echo yey
