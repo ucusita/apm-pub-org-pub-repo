@@ -1,4 +1,4 @@
-name: Move help wanted issues
+name: Move ready to merge issues
 on:
   issues:
     types:
@@ -6,12 +6,17 @@ on:
 
 jobs:
   move_issues:
-    if: github.repository == 'apm-pub-org/apm-pub-org-pub-repo' && (github.event.label.name == 'help wanted' || github.event.label.name == 'good first issue')
+    if: github.repository == 'github/docs' && github.event.label.name == 'ready to merge'
     runs-on: ubuntu-latest
-
     steps:
-      - uses: alex-page/github-project-automation-plus@v0.3.0
+      - name: move issue
+        uses: alex-page/github-project-automation-plus@v0.3.0
         with:
           project: apm-org-repo-board
           column: c1
           repo-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+      - name: remove label
+        uses: andymckay/labeler@1.0.2
+        with:
+          remove-labels: "waiting for review"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
