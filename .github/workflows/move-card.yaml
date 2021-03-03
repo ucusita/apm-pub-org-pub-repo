@@ -6,15 +6,15 @@ on:
 
 jobs:
   move_issues:
-    if: github.repository == 'apm-pub-org/apm-pub-org-pub-repo' && github.event.label.name == 'ready to merge'
+#     if: github.repository == 'apm-pub-org/apm-pub-org-pub-repo' && github.event.label.name == 'ready to merge'
     runs-on: ubuntu-latest
     steps:
-      - name: move issue
-        uses: alex-page/github-project-automation-plus@v0.3.0
-        with:
-          project: apm-org-repo-board
-          column: c1
-          repo-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+#       - name: move issue
+#         uses: alex-page/github-project-automation-plus@v0.3.0
+#         with:
+#           project: apm-org-repo-board
+#           column: c1
+#           repo-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
       - name: remove label
         uses: andymckay/labeler@1.0.2
         with:
