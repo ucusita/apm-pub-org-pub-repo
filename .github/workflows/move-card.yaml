@@ -14,7 +14,7 @@ jobs:
         with:
           project: apm-org-repo-board
           column: c1
-          repo-token: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
+          repo-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
       - name: remove label
         uses: andymckay/labeler@master
         with:
