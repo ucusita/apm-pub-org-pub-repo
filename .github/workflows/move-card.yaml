@@ -6,7 +6,7 @@ on:
 
 jobs:
   move_issues:
-    if: github.repository == 'github/docs' && github.event.label.name == 'ready to merge'
+    if: github.repository == 'apm-pub-org/apm-pub-org-pub-repo' && github.event.label.name == 'ready to merge'
     runs-on: ubuntu-latest
     steps:
       - name: move issue
