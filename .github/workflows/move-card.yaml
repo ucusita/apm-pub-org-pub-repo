@@ -11,5 +11,5 @@ jobs:
       - name: remove labels
         uses: andymckay/labeler@master
         with:
-          remove-labels: "bug"
+          remove-labels: "help wanted"
           repo-token: ${{ secrets.GITHUB_TOKEN }}
