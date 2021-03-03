@@ -1,14 +1,21 @@
-name: Move ready to merge issues
+name: Move and unlabel ready to merge issues
 on:
   issues:
     types:
       - labeled
+
 jobs:
-  remove_labels:
-#     if: github.event.project_card.column_id == '13186353'
+  unmark_for_review:
+    if: github.repository == 'apm-pub-org/apm-pub-org-pub-repo' && github.event.label.name == 'ready to merge'
     runs-on: ubuntu-latest
     steps:
-      - name: remove labels
+      - name: move issue
+        uses: alex-page/github-project-automation-plus@v0.3.0
+        with:
+          project: apm-org-repo-board
+          column: c1
+          repo-token: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
+      - name: remove label
         uses: andymckay/labeler@master
         with:
           remove-labels: "waiting for review"
